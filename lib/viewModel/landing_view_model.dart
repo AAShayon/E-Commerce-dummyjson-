@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class LandingViewModel with ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
   final ThemeService _themeService = ThemeService();
-
   LandingViewModel() {
     _initializeThemeMode();
   }
@@ -28,4 +27,5 @@ class LandingViewModel with ChangeNotifier {
     await _themeService.updateThemeMode(mode);
     notifyListeners();
   }
+  ///checking git status commit
 }
