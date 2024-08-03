@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context,child){
         return MultiProvider(providers: [
-
-        ]
-
+//others provider
+        ],
+        child: MaterialApp(),
         );
 
       },
