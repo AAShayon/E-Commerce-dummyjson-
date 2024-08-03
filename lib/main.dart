@@ -1,3 +1,5 @@
+import 'package:d_shop/utils/theme/theme.dart';
+import 'package:d_shop/viewModel/landing_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +25,18 @@ class MyApp extends StatelessWidget {
       builder: (context,child){
         return MultiProvider(providers: [
 //others provider
+        ChangeNotifierProvider(create: (context)=>LandingViewModel()),
         ],
-        child: MaterialApp(),
+        child: Consumer<LandingViewModel>(
+          builder: (context,landingViewModel,child) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.lightTheme,
+              darkTheme: AppTheme.darkTheme,
+              themeMode: landingViewModel.themeMode,
+            );
+          }
+        ),
         );
 
       },
