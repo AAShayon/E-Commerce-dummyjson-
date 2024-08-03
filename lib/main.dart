@@ -1,12 +1,19 @@
 import 'package:d_shop/utils/theme/theme.dart';
 import 'package:d_shop/viewModel/landing_view_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-void main(){
-  runApp(MyApp());
+void main() async{
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(child: MyApp(), supportedLocales: const [
+      Locale("en",""),
+      Locale("bn",""),
+    ], path:'lib/model/service/localization/language')
+  );
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
